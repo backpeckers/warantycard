@@ -22,3 +22,5 @@ Route::get('/add_customer','CustomerController@getCustomerPage');
 Route::get('/edit_customer','CustomerController@getEditCustomerPage');
 Route::get('/product','ProductController@getProductPage');
 Route::get('/add_product','ProductController@getAddProductPage');
+Route::get('/edit_product','ProductController@getEditProductPage');
+Route::get('/waranty','WarantyController@getWarantyPage');
