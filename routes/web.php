@@ -20,3 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/add_customer','CustomerController@getCustomerPage');
 Route::get('/edit_customer','CustomerController@getEditCustomerPage');
+Route::get('/product','ProductController@getProductPage');
+Route::get('/add_product','ProductController@getAddProductPage');
