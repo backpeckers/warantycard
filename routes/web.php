@@ -16,7 +16,6 @@ Route::get('/', function () {
 });
 
 // Route::get('/getCustomer',array('as'=>'viewCustomer','uses'=>'CustomerController@getCustomer'));
-Route::get('/getProvince','CustomerController@getProvince');
-Route::get('/cus','CusController@cus');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/add_customer','CustomerController@getCustomerPage');

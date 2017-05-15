@@ -9,14 +9,8 @@ use DB;
 
 class CustomerController extends Controller
 {
-    public function getCustomer(){
-    	//$cust = table('customer')->get();
-    	$cust = Customer::all();
-    	 dd ($cust);
+    public function getCustomerPage(){
+    	return view('customer.add_customer');
     }
-    /*public function getProvince(){
 
-    	$prov = Province::all();
-    	dd ($prov);
-    }*/
 }
