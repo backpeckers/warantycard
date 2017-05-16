@@ -10,7 +10,9 @@ use DB;
 class WarantyController extends Controller
 {
    public function getWarantyPage(){
-   		return view('waranty.waranty');
+   	        $customers = Customer::get();
+
+   		return view('waranty.waranty',['waranty'=> $customers]);
 
    }
 }

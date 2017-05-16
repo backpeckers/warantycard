@@ -4,16 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Customer;
-use App\Model\Province;
 use DB;
 
 class CustomerController extends Controller
 {
     public function getCustomerPage(){
+        $customers = Customer::get();
+            // return $customers;
     	return view('customer.add_customer');
     }
-    public function getEditCustomerPage(){
-    	return view('customer.edit_customer');
+    public function getEditCustomerPage(Request $request){
+          $id = $request->id;
+          // $customer = Customer::find($id);
+           $customer = DB::table('customer')
+                     ->where('customer_id', '=', $id)
+                     ->get();
+    	return view('customer.edit_customer',['customer'=> $customer]);
     }
     public function addCustomer(Request $request){
         $customer = new Customer();
@@ -33,7 +39,22 @@ class CustomerController extends Controller
     }
 
     public function getCustomer(){
-    	$customer = Customer::get();
-    		return $customer;
+    	$customers = Customer::get();
+    		return $customers;
+    }
+
+    public function editCustomer(Request $request){
+        $id = $request->id;
+
+        DB::table('customer')
+            ->where('customer_id',  $id)
+            ->update(['firstname' => $request->firstname,
+                      'lastname' => $request->lastname,
+                      'address' => $request->address,
+                      'tel' => $request->tel,
+                      'email' => $request->email
+                    ]);
+        return back();
+            // return redirect()->back();
     }
 }

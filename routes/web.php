@@ -20,15 +20,27 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 // Customer
 Route::get('/add_customer','CustomerController@getCustomerPage');
-Route::get('/edit_customer','CustomerController@getEditCustomerPage');
+Route::get('/edit_customer/{id}','CustomerController@getEditCustomerPage');
 Route::post('/add_customer','CustomerController@addCustomer');
+Route::post('/edit_customer','CustomerController@editCustomer');
+
+Route::get('/getcustomerlist','DatatablesController@anyData');
+
 // Product
 Route::get('/product','ProductController@getProductPage');
 Route::get('/add_product','ProductController@getAddProductPage');
-Route::get('/edit_product','ProductController@getEditProductPage');
+Route::get('/edit_product/{id}','ProductController@getEditProductPage');
+Route::post('/add_product','ProductController@addProduct');
+Route::post('/edit_customer','ProductController@editProduct');
 
 // Waranty
 Route::get('/waranty','WarantyController@getWarantyPage');
+
+// Report
+Route::get('/report','ReportController@getReportPage');
+
+// Maintenance
+Route::get('/maintenance','MaintenanceController@getMaintenancePage');
 
 
 // API for mobile

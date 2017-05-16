@@ -12,6 +12,14 @@ class Customer extends Model
     ];
 
 }
+class SelectName  extends Model
+{
+     protected $table = 'customer';
+     protected $fillable=[
+        'firstname','lastname'
+    ];
+
+}
 /**
 * 
 */
